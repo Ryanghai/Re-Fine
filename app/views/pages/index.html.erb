@@ -1,1 +1,101 @@
-<p>TOP</p>
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/filipelinhares/ress/master/dist/ress.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Re：Find|美術館・個展情報サービス|Top Page</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header_logo">
+            <%= image_tag 're.fine.logo.png', class: 'header_icon' %>
+                <h1>Re:Find</h1>
+            </div>
+            <div class="header_indent">
+                <ul>
+                    <li><a href="#">ログイン</a></li>
+                    <li><a href="#">新規会員登録</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="eye_catch">
+            <%= image_tag 'main_img.jpg', class: 'main_img' %>
+            <div class="catch_copy">
+                <h1>Share</h1>
+                <p>your</p>
+                <h1>Real Art</h1>
+            </div>
+        </div>
+
+
+        <div class="search">
+            <h1 class="search_title">エリアから探す</h1>
+            <div class="area_search_list">
+                <ul>
+                    <a href="#"><li>福岡</li></a>
+                    <a href="#"><li>東京</li></a>
+                    <a href="#"><li>愛知</li></a>
+                </ul>
+                <ul>
+                    <a href="#"><li>京都</li></a>
+                    <a href="#"><li>大阪</li></a>
+                    <a href="#"><li>神奈川</li></a>
+                </ul>
+                <p><a href="#">その他</a></p>
+            </div>
+
+            <h1 class="search_title">ジャンルから探す</h1>
+            <div class="category_search_list">
+                <ul>
+                    <a href="#"><li><%= image_tag 'sculpture.jpeg' %>
+                        <p>彫刻</p>
+                    </li></a>
+                    <a href="#"><li><%= image_tag 'cotemporaly.jpeg' %>
+                        <p>現代アート</p>
+                    </li></a>
+                    <a href="#"><li><%= image_tag 'western.jpeg' %> 
+                        <p>西洋美術</p>
+                    </li></a>
+                </ul>
+                <ul>
+                    <a href="#"><li><%= image_tag 'orient.jpeg' %> 
+                        <p>西洋美術</p>
+                    </li></a>
+                    <a href="#"><li><%= image_tag 'Three-dimensional.jpeg' %> 
+                        <p>立体芸術</p>
+                    </li></a>
+                    <a href="#"><li><%= image_tag 'ect.jpeg' %> 
+                        <p>その他</p>
+                    </li></a>
+                </ul>
+            </div>
+            <h1 class="search_title">キーワードから探す</h1>
+            <div class="search_form">
+                <form id="top_search" method="GET">
+                    <input id="keyWord" type="text" placeholder="キーワードを入力" />
+                    <input id="search_btn" type="submit" value="検索" />
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer_container">
+                 <%= image_tag 're.fine.logo.png', class: 'footer_logo' %>
+                <div class="footer_list">
+                    <ul>
+                        <li><a href="#">お問い合わせ</a></li>
+                        <li><a href="#">会員登録</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
