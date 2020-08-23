@@ -10,6 +10,13 @@ class ExhibitionsController < ApplicationController
   # GET /exhibitions/1
   # GET /exhibitions/1.json
   def show
+    @review = Review.new
+    @reviews = Review.where(exhibition_id:params[:id])
+  end
+
+  def create
+      @review = Review.new(review_params)
+      @review.save
   end
 
   private
@@ -21,5 +28,9 @@ class ExhibitionsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def exhibition_params
       params.require(:exhibition).permit(:exhibition_name, :place, :address, :detail, :category)
+    end
+
+    def review_params
+      params.require(:review).permit(:exhibition_id, :title, :body)
     end
 end

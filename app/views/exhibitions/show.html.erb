@@ -1,26 +1,123 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="ja">
 
-<p>
-  <strong>Exhibition name:</strong>
-  <%= @exhibition.exhibition_name %>
-</p>
+<head>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/filipelinhares/ress/master/dist/ress.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Re：Find|○×展示会詳細情報</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="index.css">
+</head>
 
-<p>
-  <strong>Place:</strong>
-  <%= @exhibition.place %>
-</p>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header_logo">
+                <img class="header_icon" src="logo.svg">
+                <h1>Re:Find</h1>
+            </div>
+            <div class="header_indent">
+                <ul>
+                    <li><a href="#">ログイン</a></li>
+                    <li><a href="#">新規会員登録</a></li>
+                </ul>
+            </div>
+        </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @exhibition.address %>
-</p>
 
-<p>
-  <strong>Detail:</strong>
-  <%= @exhibition.detail %>
-</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @exhibition.category %>
-</p>
+
+
+
+
+
+
+        <div class="exhibition">
+          <%= image_tag 'exhibition.jpg', class: 'exhibition_pic' %>
+            <div class="about_revew">
+                <h1 class="revew_exhibition_name"><p>
+                <strong>展示会名:</strong>
+                <%= @exhibition.exhibition_name %>
+              </p>
+                <h3 class="revew_place">
+              <p>
+                <strong>場所:</strong>
+                <%= @exhibition.place %>
+              </p>
+              <p>
+                <strong>住所：</strong>
+                <%= @exhibition.address %>
+              </p>
+              <p>
+                <strong>ジャンル:</strong>
+                <%= @exhibition.category %>
+              </p>
+                <p class="revew_content">
+                <strong>詳細:</strong>
+                <%= @exhibition.detail %>
+              </p>
+            </div>
+        </div>
+          
+        
+
+        <div class="revews">
+            <h1>口コミ</h1> 
+            <div class="revew_container">
+                <div class="revew">
+                  <% @reviews.each do |review| %>
+                    <h3 class="name"><%= review.exhibition_id %></h3>
+                    <h3>詳細</h3>
+                    <h3 class="comment"><%= review.title %></h3>
+                    <p class="revew_content">
+                    <%= review.body %>
+                    </p>
+                  <% end %>
+                </div>
+            </div>
+            <%= form_with(model: @review, local: true) do |form| %>
+              <div class="field">
+                <%= form.label :exhibition_id %>
+                <%= form.text_field :exhibition_id %>
+              </div>
+            
+              <div class="field">
+                <%= form.label :title %>
+                <%= form.text_field :title %>
+              </div>
+            
+              <div class="field">
+                <%= form.label :body %>
+                <%= form.text_area :body %>
+              </div>
+            
+              <div class="actions">
+                <%= form.submit %>
+              </div>
+            <% end %>
+            <p id="notice"><%= notice %></p>
+    
+            <a href="#">評価を書き込む</a>
+        </div>
+
+        <div class="footer">
+            <div class="footer_container">
+                <img class="footer_logo" src="logo.svg">
+                <div class="footer_list">
+                    <ul>
+                        <li><a href="#">お問い合わせ</a></li>
+                        <li><a href="#">会員登録</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+

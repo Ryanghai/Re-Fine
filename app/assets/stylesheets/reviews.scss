@@ -1,0 +1,124 @@
+// Place all the styles related to the reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+//展示会詳細兼口コミ入力
+
+
+@charset "utf-8";
+
+.header {
+    background-color: black;
+    width: 100%;
+    height: 60px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_logo {
+    display: flex;
+}
+
+.header_logo h1 {
+    padding: 8px 24px 0 8px ;
+
+}
+
+.header_icon {
+    width: 60px;
+    height: 60px;
+    left: 0;
+    margin-left: 24px;
+}
+
+.header_indent li {
+    display: inline-block;
+    margin: 16px;
+    padding-right: 12px;
+}
+
+.header_indent a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+.exhibition {
+    display: flex;
+    margin: 50px 250px;
+}
+
+.exhibition_pic{
+    object-fit: contain;
+    height: 500px;
+    width: auto;
+}
+
+.about_revew{
+    margin: 0 70px;
+}
+
+.about_revew h3{
+    margin:  30px 0;
+}
+
+
+.revews {
+    margin: 50px 250px;
+}
+
+.revews h1{
+    margin-bottom: 20px;
+}
+
+.revews a{
+    background-color: black;
+    color: white;
+    margin: 0px 30px ;
+    padding: 10px;
+    text-decoration: none;
+    
+}
+
+.revew_container{
+    margin: 30px;
+    display: flex;
+}
+
+.revew_container img{
+    height: 200px;
+    width: 200px;
+}
+
+.revew{
+    margin: 5px 30px;
+}
+
+
+
+
+.footer{
+    background-color: black;
+}
+
+.footer_container{
+    margin: 0 210px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_logo{
+    width: 200px;
+    height: 200px;
+}
+
+.footer_list{
+    margin-top: 80px;
+}
+
+.footer_list a{
+    color: #ffffff;
+    text-decoration: none;
+}

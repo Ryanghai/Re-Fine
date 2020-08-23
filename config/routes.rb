@@ -7,6 +7,13 @@ Rails.application.routes.draw do
   # Exhibitoinsの一覧と詳細ページ
   get '/exhibitions', to: 'exhibitions#index'
   get '/exhibitions/:id', to: 'exhibitions#show'
+  post '/exhibitions', to: 'exhibitions#create'
+
+  # Review
+  get '/reviews', to: 'reviews#index'
+  get '/reviews/new', to: 'reviews#new'
+  post '/reviews', to: 'reviews#create'
+  get '/reviews/:id', to: 'reviews#show'
 
   # User
   # resources :users

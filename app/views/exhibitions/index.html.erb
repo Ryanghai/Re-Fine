@@ -1,99 +1,69 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-<div class="header">
-    <div class="header_logo">
-        <img class="header_icon" src="logo.svg">
-        <h1>Re:Find</h1>
-    </div>
-    <div class="header_indent">
-        <ul>
-          <li><a href="#">ログイン</a></li>
-          <li><a href="#">新規会員登録</a></li>
-        </ul>
-    </div>
-</div>
 
-<div class="search_container">
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/filipelinhares/ress/master/dist/ress.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Re：Find|美術館・個展情報サービス|Top Page</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+          <div class="header_logo">
+          <%= image_tag 're.fine.logo.png', class: 'header_icon' %>
+                <h1>Re:Find</h1>
+          </div>
+          <div class="header_indent">
+            <ul>
+              <li><a href="#">ログイン</a></li>
+              <li><a href="#">新規会員登録</a></li>
+            </ul>
+          </div>  
+        </div>
+    </div>
+
+  <div class="search_container">
     <h1>検索結果</h1>
     <P>３件</P>
-    <div class="search_result">
-        <img class="exhibition_pic" src="exhibition.jpg">
-        <div class="result">
-            <h2 class="revew_exhibition_name">○×展示会</h2>
-            <h3 class="reverw_num">評価<span class="star5_rating" data-rate="2.5"></span></h3>
-            <h3 class="revew_place">場所:<span>福岡県○○美術館</span></h3>
-            <h3>この展示会について</h3>
-            <p class="revew_content">
-                にんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばん
-            </p>
-        </div>
-    </div>
-    <div class="search_result">
-        <img class="exhibition_pic" src="exhibition.jpg">
-        <div class="result">
-            <h2 class="revew_exhibition_name">○×展示会</h2>
-            <h3 class="reverw_num">評価<span class="star5_rating" data-rate="3.5"></span></h3>
-            <h3 class="revew_place">場所:<span>福岡県○○美術館</span></h3>
-            <h3>この展示会について</h3>
-            <p class="revew_content">
-                にんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばん
-            </p>
-        </div>
-    </div>
-    <div class="search_result">
-        <img class="exhibition_pic" src="exhibition.jpg">
-        <div class="result">
-            <h2 class="revew_exhibition_name">○×展示会</h2>
+      <% @exhibitions.each do |exhibition| %>
+        <div class="search_result">
+          <img class="exhibition_pic" src="exhibition.jpg">
+          <div class="result">
+            <h2 class="revew_exhibition_name"> <%= exhibition.exhibition_name %> </h2>
             <h3 class="reverw_num">評価<span class="star5_rating" data-rate="1"></span></h3>
-            <h3 class="revew_place">場所:<span>福岡県○○美術館</span></h3>
+            <h3 class="revew_place">場所:<span><%= exhibition.place %> <%= exhibition.address %></span></h3>
+            <h3 class="category">ジャンル:<%= exhibition.category %></h3>
             <h3>この展示会について</h3>
             <p class="revew_content">
-                にんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばんにんじゃりばんばん
+            <%= exhibition.detail %>
             </p>
+            <%= link_to '詳細', "/exhibitions/#{exhibition.id}" %>
+          </div>
         </div>
-    </div>
-</div>
+      <% end %>
+  </div>
 
 
 
-<div class="footer">
-    <div class="footer_container">
-        <img class="footer_logo" src="logo.svg">
-        <div class="footer_list">
-            <ul>
-                <li><a href="#">お問い合わせ</a></li>
-                <li><a href="#">会員登録</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-</div>
+  <div class="footer">
+      <div class="footer_container">
+          <img class="footer_logo" src="logo.svg">
+          <div class="footer_list">
+              <ul>
+                  <li><a href="#">お問い合わせ</a></li>
+                  <li><a href="#">会員登録</a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</body>
 
-<table>
-  <thead>
-    <tr>
-      <th>Exhibition name</th>
-      <th>Place</th>
-      <th>Address</th>
-      <th>Detail</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @exhibitions.each do |exhibition| %>
-      <tr>
-        <td><%= exhibition.exhibition_name %></td>
-        <td><%= exhibition.place %></td>
-        <td><%= exhibition.address %></td>
-        <td><%= exhibition.detail %></td>
-        <td><%= exhibition.category %></td>
-        <td><%= link_to 'Show', exhibition %></td>
-        <td><%= link_to 'Edit', edit_exhibition_path(exhibition) %></td>
-        <td><%= link_to 'Destroy', exhibition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
